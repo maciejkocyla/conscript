@@ -9,6 +9,10 @@ class InitializerGenerator < Rails::Generators::Base
     generate "controller", "sessions "
   end
 
+  def set_of_gems
+    gem "bcrypt-ruby"
+  end
+
   def session_helper_autocomplete
 
     inject_into_file "app/helpers/sessions_helper.rb", after: "module SessionsHelper\n" do <<-'RUBY'
