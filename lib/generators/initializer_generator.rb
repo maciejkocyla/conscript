@@ -11,7 +11,7 @@ class InitializerGenerator < Rails::Generators::NamedBase
 
   def session_helper_autocomplete
 
-    inject_into_file "app/helpers/sessions_helper.rb", after: "module SessionsHelper\n" do <<-'module SessionsHelper\n'
+    inject_into_file "app/helpers/sessions_helper.rb", after: "module SessionsHelper\n" do <<-'RUBY'
       def sign_in(user)        
         remember_token = User.new_remember_token
         cookies.permanent[:remember_token] = remember_token
@@ -45,7 +45,8 @@ class InitializerGenerator < Rails::Generators::NamedBase
       def root?
         signed_in? && current_user.admin?
       end
-    end
+
+    RUBY
   end
 
 
