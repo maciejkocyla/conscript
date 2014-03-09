@@ -48,6 +48,6 @@ class InitializerGenerator < Rails::Generators::NamedBase
 
     RUBY
   end
-
+  end
 
 end
